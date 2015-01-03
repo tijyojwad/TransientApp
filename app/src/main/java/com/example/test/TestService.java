@@ -12,7 +12,6 @@ public class TestService extends Service {
 	private NotificationManager manager;
 	
     private int NOTIF = R.string.service_notification;
-    private int NOTIF1 = R.string.service;
     
     @Override
     public void onCreate() {
@@ -36,11 +35,8 @@ public class TestService extends Service {
 		CharSequence text = getText(R.string.service_notification);
 		PendingIntent pending = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0);
 		Notification n = new Notification.Builder(this).setContentText(text).setContentTitle("TransientApp").setSmallIcon(R.drawable.ic_launcher).setContentIntent(pending).build();
-		
-		Notification n1 = new Notification.Builder(this).setContentText(text).setContentTitle("TransientApp").setSmallIcon(R.drawable.ic_launcher).setContentIntent(pending).build();
-			
+
 		manager.notify(NOTIF, n);
-		manager.notify(NOTIF1, n1);
 	}
 	
 	public void onDestroy() {
