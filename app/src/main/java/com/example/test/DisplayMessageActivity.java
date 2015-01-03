@@ -8,22 +8,24 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.webkit.WebView;
 
 public class DisplayMessageActivity extends Activity {
+    static String url;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		Intent intent = getIntent();
-		String msg = intent.getStringExtra(MainActivity.EXTRA_MSG);
-		
-		TextView tv = new TextView(this);
-		tv.setTextSize(40);
-		tv.setText(msg);
-		
-		setContentView(tv);
+        setContentView(R.layout.activity_display_message);
+
+        Intent intent = getIntent();
+        url = intent.getStringExtra(MainActivity.EXTRA_MSG);
+
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment())
+                    .commit();
+        }
 	}
 
 	@Override
@@ -56,8 +58,8 @@ public class DisplayMessageActivity extends Activity {
 	}
 	
 	public void goBack(View view) {
-		// Method to go back to page activity
-		
+        WebView myWebView = (WebView) findViewById(R.id.webview);
+        myWebView.loadUrl(url);
 	}
 
 }

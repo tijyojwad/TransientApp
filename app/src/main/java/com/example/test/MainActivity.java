@@ -10,7 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 public class MainActivity extends Activity {
 	public final static String EXTRA_MSG = "com.example.Test.MESSAGE";
@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
@@ -47,20 +47,19 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-    
+
     public void sendMessage(View view) {
     	// Do something in response to Send button clock
     	Intent intent = new Intent(this, DisplayMessageActivity.class);
     	EditText text = (EditText) findViewById(R.id.edit_message);
-    	String msg = text.getText().toString();
-    	intent.putExtra(EXTRA_MSG, msg);
+        intent.putExtra(EXTRA_MSG, text.getText().toString());
     	startActivity(intent);
     }
-    
+
     public void startService(View view) {
     	startService(new Intent(this, TestService.class));
     }
-    
+
     public void stopService(View view) {
     	stopService(new Intent(this, TestService.class));
     }

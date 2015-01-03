@@ -34,5 +34,5 @@
             android:name="com.example.test.TestService"
             />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
