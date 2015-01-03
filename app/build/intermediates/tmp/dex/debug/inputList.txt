@@ -1,2 +1,0 @@
-/Users/avohra/AndroidStudioProjects/TransientApp/app/build/intermediates/classes/debug
-/Users/avohra/AndroidStudioProjects/TransientApp/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-18a57eb6b9e79b88f01f913b55b3b23f57535843.jar
