@@ -41,7 +41,6 @@ public class WifiHandler {
     private void _addKnownNetworks() {
         // To test connection to known network, add SSID, password pair here as
         // knownNetworks.put(<ssid>,<pwd>);
-        knownNetworks.put("Papple1", "chunkymonkey42");
     }
 
     // Set configuration for wifi connection.
