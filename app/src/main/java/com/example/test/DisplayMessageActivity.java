@@ -56,10 +56,15 @@ public class DisplayMessageActivity extends Activity {
 			return rootView;
 		}
 	}
-	
-	public void goBack(View view) {
+
+    public void viewUrl() {
         WebView myWebView = (WebView) findViewById(R.id.webview);
         myWebView.loadUrl(url);
+    }
+
+	public void showPage(View view) {
+        System.out.println(url);
+        viewUrl();
 	}
 
 }

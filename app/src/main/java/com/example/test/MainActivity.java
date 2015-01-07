@@ -2,7 +2,10 @@ package com.example.test;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentSender;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10,10 +13,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	public final static String EXTRA_MSG = "com.example.Test.MESSAGE";
+    private Context mCtx;
+    private WifiHandler handler;
+
+    private static final int REQUEST_RESOLVE_ERROR = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +32,8 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        mCtx = this.getBaseContext();
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -57,13 +64,25 @@ public class MainActivity extends Activity {
     }
 
     public void startService(View view) {
-    	startService(new Intent(this, TestService.class));
+        startService(new Intent(this, TestService.class));
     }
 
     public void stopService(View view) {
     	stopService(new Intent(this, TestService.class));
     }
 
+    public void scanWifi(View view) {
+        TextView tv = (TextView) findViewById(R.id.wifilist);
+        handler = new WifiHandler(mCtx);
+        handler.scanNetworks();
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        if (handler != null) {
+            handler.cleanUp();
+        }
+    }
     /**
      * A placeholder fragment containing a simple view.
      */

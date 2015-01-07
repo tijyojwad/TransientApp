@@ -30,11 +30,22 @@
 	    android:text="@string/stop_service"
 	    android:onClick="stopService"
 	    />
-	
-	<TextView
-	    android:id="@+id/view_msg"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:hint="@string/view_msg"
-	     />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_wifi"
+        android:onClick="scanWifi"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/wifilist"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorbox"
+        android:hint="Show errors here"/>
 </LinearLayout>
