@@ -14,5 +14,7 @@
     <string name="service_notification">test_service</string>
     <string name="service">service</string>
     <string name="search_wifi">Connect Wifi</string>
+    <string name="no_ads">No ads to view</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

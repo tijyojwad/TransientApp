@@ -32,6 +32,9 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        // To add the widget icon in the widget list
+        sendBroadcast(new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME));
+
         mCtx = this.getBaseContext();
     }
 
