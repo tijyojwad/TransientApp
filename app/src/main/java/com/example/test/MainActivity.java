@@ -60,9 +60,10 @@ public class MainActivity extends Activity {
 
     public void sendMessage(View view) {
     	// Do something in response to Send button clock
-    	Intent intent = new Intent(this, DisplayMessageActivity.class);
-    	EditText text = (EditText) findViewById(R.id.edit_message);
-        intent.putExtra(EXTRA_MSG, text.getText().toString());
+//    	Intent intent = new Intent(this, DisplayMessageActivity.class);
+//    	EditText text = (EditText) findViewById(R.id.edit_message);
+//        intent.putExtra(EXTRA_MSG, text.getText().toString());
+        Intent intent = new Intent(this, MenuPageActivity.class);
     	startActivity(intent);
     }
 

@@ -24,12 +24,31 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".MenuPageActivity"
+            android:label="MenuPage"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity">
+            </meta-data>
+        </activity>
+
+        <activity
             android:name="com.example.test.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
             android:parentActivityName="com.example.test.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.test.MainActivity"
+                />
+        </activity>
+        <activity
+            android:name="com.example.test.OrderPage"
+            android:label="@string/title_activity_display_message"
+            android:parentActivityName="com.example.test.MenuPageActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.test.MenuPageActivity"
                 />
         </activity>
 

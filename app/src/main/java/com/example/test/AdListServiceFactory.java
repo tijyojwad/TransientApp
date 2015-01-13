@@ -16,7 +16,7 @@ import java.util.concurrent.ExecutionException;
  * Created by joyjitdaw on 1/6/15.
  */
 public class AdListServiceFactory implements RemoteViewsService.RemoteViewsFactory {
-    private ArrayList<String> ads;
+    private ArrayList<MenuCategory> ads;
     private int numAds = 0;
     private Context mCtx;
     private int widgetId;
@@ -28,7 +28,7 @@ public class AdListServiceFactory implements RemoteViewsService.RemoteViewsFacto
 
 
     public void onCreate() {
-        ads = new ArrayList<String>();
+        ads = new ArrayList<MenuCategory>();
     }
 
     @Override
@@ -61,7 +61,7 @@ public class AdListServiceFactory implements RemoteViewsService.RemoteViewsFacto
             e.printStackTrace();
         }
         RemoteViews remoteViews = new RemoteViews(mCtx.getPackageName(), R.layout.list_item);
-        remoteViews.setTextViewText(R.id.list_item, ads.get(pos));
+        remoteViews.setTextViewText(R.id.list_item, ads.get(pos).getName());
         return remoteViews;
     }
 

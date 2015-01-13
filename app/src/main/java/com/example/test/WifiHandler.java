@@ -41,6 +41,7 @@ public class WifiHandler {
     private void _addKnownNetworks() {
         // To test connection to known network, add SSID, password pair here as
         // knownNetworks.put(<ssid>,<pwd>);
+        knownNetworks.put("Papple1", "chunkymonkey42");
     }
 
     // Set configuration for wifi connection.
@@ -110,8 +111,7 @@ public class WifiHandler {
 
     public void startWebpageAccess() {
         if (!startedWebpage) {
-            Intent intent = new Intent(context, DisplayMessageActivity.class);
-            intent.putExtra(MainActivity.EXTRA_MSG, "http://10.0.0.10/files/test.txt");
+            Intent intent = new Intent(context, MenuPageActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intent);
             startedWebpage = true;
