@@ -1,0 +1,62 @@
+{
+  "menu": {
+    "starter": [
+      {
+        "name" : "momo",
+        "price" : "3.99",
+        "image" : ""
+      },
+      {
+        "name" : "lassi",
+        "price" : "1.99",
+        "image" : ""
+      }
+    ],
+    "entree": [
+      {
+        "name" : "Biryani",
+        "price" : "8.99",
+        "image" : ""
+      },
+      {
+        "name" : "Butter Chicken",
+        "price" : "7.99",
+        "image" : ""
+      },
+      {
+        "name" : "Lamb Vindaloo",
+        "price" : "9.99",
+        "image" : ""
+      },
+      {
+        "name" : "Dal Makhani",
+        "price" : "6.99",
+        "image" : ""
+      }
+    ],
+    "desert": [
+      {
+        "name" : "Gulab Jamun",
+        "price" : "4.99",
+        "image" : ""
+      },
+      {
+        "name" : "Baklava",
+        "price" : "5.99",
+        "image" : ""
+      }
+    ],
+    "drinks": [
+      {
+        "name" : "Beer",
+        "price" : "4.00",
+        "image" : ""
+      },
+      {
+        "name" : "Wine",
+        "price" : "12.00",
+        "image" : ""
+      }
+    ]
+  }
+}

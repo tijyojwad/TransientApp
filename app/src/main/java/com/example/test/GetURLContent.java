@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,32 +56,22 @@ public class GetURLContent extends AsyncTask<String, Void, ArrayList<MenuCategor
             JSONObject jsonObject = new JSONObject(content);
             JSONObject menu = jsonObject.getJSONObject("menu");
 
-            JSONArray starter = menu.getJSONArray("starter");
-            MenuCategory starterCat = new MenuCategory("starter");
-            for (int i = 0; i < starter.length(); i++) {
-                JSONObject food = starter.getJSONObject(i);
-                String name = food.getString("name");
-                float price = (float) food.getDouble("price");
-                String image = food.getString("image");
+            Iterator<String> names = menu.keys();
+            while(names.hasNext()) {
+                String catName = (String) names.next();
+                MenuCategory cat = new MenuCategory(catName);
+                JSONArray foods = menu.getJSONArray(catName);
+                for (int i = 0; i < foods.length(); i++) {
+                    JSONObject food = foods.getJSONObject(i);
+                    String name = food.getString("name");
+                    float price = (float) food.getDouble("price");
+                    String image = food.getString("image");
 
-                MenuElement e = new MenuElement(name, price, image);
-                starterCat.addItem(e);
+                    MenuElement e = new MenuElement(name, price, image);
+                    cat.addItem(e);
+                }
+                adList.add(cat);
             }
-
-            JSONArray entree = menu.getJSONArray("entree");
-            MenuCategory entreeCat = new MenuCategory("entree");
-            for (int i = 0; i < entree.length(); i++) {
-                JSONObject food = entree.getJSONObject(i);
-                String name = food.getString("name");
-                float price = (float) food.getDouble("price");
-                String image = food.getString("image");
-
-                MenuElement e = new MenuElement(name, price, image);
-                entreeCat.addItem(e);
-            }
-
-            adList.add(starterCat);
-            adList.add(entreeCat);
         } catch (JSONException e) {
             e.printStackTrace();
         }
